@@ -140,17 +140,7 @@ This shows what a complete critique looks like end-to-end. This is the format to
 
 ---
 
-### 1. R11 — Growth areas have no remediation plan
-
-> "Maria needs to develop her stakeholder communication skills. We've discussed this and she's aware of the gap."
-
-This tells the reviewer you noticed the problem but not that you're solving it. "We discussed it and she's aware" is not a plan — it's a conversation. A reviewer will read this as a gap that hasn't been addressed, which undermines the promotion case.
-
-**What to fix:** Describe what specific actions Maria is taking. Is she presenting to leadership monthly now? Did you set up a coaching engagement? Are you reviewing her stakeholder updates weekly? Show that awareness has turned into action.
-
----
-
-### 2. R1 — Scope of Role is about the person, not the job
+### 1. R1 — Scope of Role is about the person, not the job
 
 > "Maria has built an incredible reputation across the org. Her role as Technical Program Manager requires managing complex cross-functional programs, and she does it brilliantly."
 
@@ -160,7 +150,7 @@ Two problems: "Maria has built an incredible reputation" is about the person, an
 
 ---
 
-### 3. R5 — Subjective language in the Assessment
+### 2. R5 — Subjective language in the Assessment
 
 > "Maria's technical leadership is truly exceptional. She consistently goes above and beyond to deliver world-class results."
 
@@ -170,7 +160,7 @@ Two problems: "Maria has built an incredible reputation" is about the person, an
 
 ---
 
-### 4. R8 — Assessment example missing its result
+### 3. R8 — Assessment example missing its result
 
 > "Maria led the platform migration across three business units, coordinating with 12 engineering teams."
 
@@ -180,11 +170,21 @@ This names a situation and an action but no result. What happened because Maria 
 
 ---
 
-### 5. R9 — Undefined acronyms
+### 4. R9 — Undefined acronyms
 
 The following appear without definition: "TPM" (first use), "SRE," "OKR review," "P0 incident." A reviewer from outside your org may not share this vocabulary.
 
 **What to fix:** Spell out each acronym on first use. For internal processes like "OKR review," add a one-phrase description of what it involves.
+
+---
+
+### 5. R11 — Growth areas have no remediation plan
+
+> "Maria needs to develop her stakeholder communication skills. We've discussed this and she's aware of the gap."
+
+This tells the reviewer you noticed the problem but not that you're solving it. "We discussed it and she's aware" is not a plan — it's a conversation. A reviewer will read this as a gap that hasn't been addressed, which undermines the promotion case.
+
+**What to fix:** Describe what specific actions Maria is taking. Is she presenting to leadership monthly now? Did you set up a coaching engagement? Are you reviewing her stakeholder updates weekly? Show that awareness has turned into action.
 
 ---
 
@@ -197,8 +197,8 @@ The Growth Areas section exists and identifies real gaps, which puts this doc ah
 ---
 
 **Priority order for revisions:**
-1. Add remediation plans to every growth area — right now they read as identified but unaddressed.
-2. Rewrite Scope of Role to be about the job, not the person.
-3. Replace subjective language in the Assessment with evidence.
-4. Complete the migration example with its result.
-5. Define all undefined acronyms in one pass.
+1. Add remediation plans to every growth area (finding 5) — this is the most damaging gap for credibility.
+2. Rewrite Scope of Role to be about the job, not the person (finding 1).
+3. Replace subjective language in the Assessment with evidence (finding 2).
+4. Complete the migration example with its result (finding 3).
+5. Define all undefined acronyms in one pass (finding 4).

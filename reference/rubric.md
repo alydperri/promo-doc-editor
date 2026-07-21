@@ -15,7 +15,7 @@ This section describes the role, not the employee's performance in it. It reads 
 This section must describe the scope of THIS specific role, not a generic description of the role type. Restating the leveling guide verbatim is a fail. The reader needs to understand what this role looks like in this specific team, org, or business context.
 
 **R3: Criteria-aligned.**
-The scope description should connect to the expectations for the proposed level. If a leveling guide has been provided, the scope should demonstrate that the role's responsibilities, complexity, and influence match the next-level expectations. If no leveling guide is available, flag any scope descriptions that are too vague to evaluate against any standard.
+The scope description should connect to the expectations for the proposed level. The scope should demonstrate that the role's responsibilities, complexity, and influence match the next-level expectations.
 
 ### Promotion Assessment
 
