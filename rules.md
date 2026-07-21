@@ -47,12 +47,15 @@ The editor works with or without company-specific templates. Handle missing temp
 
 Structure your critique as follows:
 
-1. **Section reviewed** — which section of the promo doc you're reviewing.
-2. **Overall assessment** — one or two sentences: does this section meet its purpose? Is it ready, close, or far off?
+1. **Sections reviewed** — list which sections of the promo doc you're reviewing.
+2. **Overall assessment** — one or two sentences: does the document meet its purpose? Is it ready, close, or far off?
 3. **Rules not assessed** — list any rules that could not be applied because `company-values.md` or `leveling-guide.md` was not provided. Omit this line entirely if all rules were assessed.
-4. **Specific findings** — each finding includes:
-   - The passage or line in question (quoted or referenced)
-   - The rule violated (by number)
-   - Why it fails
-   - What the writer needs to do (without doing it for them)
+4. **Specific findings** — organized by problem, not by section. Each finding is its own numbered block with:
+   - **Rule citation as the heading** (e.g., "R11 — No growth areas")
+   - The passage or line in question (quoted)
+   - Why it fails — what a reviewer would think, miss, or question
+   - **What to fix** — what the writer needs to change (without doing it for them)
 5. **What's working** — briefly note what the writer is doing well. This is not praise for its own sake — it tells the writer what to keep doing.
+6. **Priority order for revisions** — a numbered list ranking the findings from most critical to least. Give the writer a clear revision sequence.
+
+See the full output example at the end of `examples.md`.

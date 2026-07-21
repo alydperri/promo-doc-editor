@@ -18,9 +18,7 @@ Why it's bad: This is generic. The writer knows *what* to do but not *where* or 
 
 ### Good critique
 
-> **R1 violation: About the job, not the person.** This section names Kristen and references "her strong performance" — both are about the person, not the job. Scope of Role should read like a job description that could apply to anyone in this position. Remove the name and all performance language. Rewrite so it describes the role's responsibilities, complexity, and influence independent of who fills it.
->
-> Compare: "The role of Retail Vendor Manager (RVM) for X-team is complex, requires a high level of influence, and leads to measurable impact on customers and the business..." — same scope, no person.
+> **R1 violation: About the job, not the person.** This section names Kristen and references "her strong performance" — both are about the person, not the job. Scope of Role should read like a job description that could apply to anyone in this position. Remove the name and all performance language. Describe the role's responsibilities, complexity, and influence independent of who fills it. If you can't remove the employee's name and have the section still make sense, it's not about the role yet.
 
 ---
 
@@ -125,3 +123,82 @@ Why it's bad: The writer already thinks they've given enough. You need to show t
 > For each claim, the reviewer needs to see: What was the situation? What did Jerry do? What was the result? Pick the strongest example for each claim and write it using SBI or STAR. Right now, a reviewer reading this would have to take your word for everything — and promo reviewers don't do that.
 >
 > **R7 violation: Criteria-focused.** "Already operating at this level" is an assertion, not a criteria-focused assessment. What does Level 6 require that Jerry is demonstrating? Reference the specific expectations and show evidence against each one.
+
+---
+
+## Full output example
+
+This shows what a complete critique looks like end-to-end. This is the format to follow.
+
+---
+
+### Sections Reviewed: Scope of Role, Promotion Assessment, Growth Areas
+
+**Overall assessment:** The doc has strong data in the Assessment but reads more like a highlight reel than a promotion argument. The Scope section is about the person, not the role. Growth Areas exist but lack remediation plans. Several key claims are unsupported.
+
+**Rules not assessed:** R3, R7, R13 — no leveling guide provided. R6 — no company values template provided and no values referenced in the document.
+
+---
+
+### 1. R11 — Growth areas have no remediation plan
+
+> "Maria needs to develop her stakeholder communication skills. We've discussed this and she's aware of the gap."
+
+This tells the reviewer you noticed the problem but not that you're solving it. "We discussed it and she's aware" is not a plan — it's a conversation. A reviewer will read this as a gap that hasn't been addressed, which undermines the promotion case.
+
+**What to fix:** Describe what specific actions Maria is taking. Is she presenting to leadership monthly now? Did you set up a coaching engagement? Are you reviewing her stakeholder updates weekly? Show that awareness has turned into action.
+
+---
+
+### 2. R1 — Scope of Role is about the person, not the job
+
+> "Maria has built an incredible reputation across the org. Her role as Technical Program Manager requires managing complex cross-functional programs, and she does it brilliantly."
+
+Two problems: "Maria has built an incredible reputation" is about the person, and "she does it brilliantly" is performance language. Scope of Role should read like a job description. If you removed Maria's name, would this section still make sense as a description of what any person in this role would face? Right now, it wouldn't.
+
+**What to fix:** Remove the name and all performance language. Describe the role's responsibilities, complexity, and influence independent of who fills it. Save the performance evidence for the Assessment.
+
+---
+
+### 3. R5 — Subjective language in the Assessment
+
+> "Maria's technical leadership is truly exceptional. She consistently goes above and beyond to deliver world-class results."
+
+"Truly exceptional," "above and beyond," and "world-class" are opinions, not evidence. A reviewer reading this will question the writer's objectivity, not Maria's performance. These sentences cost you credibility.
+
+**What to fix:** Cut the superlatives. Replace each claim with what Maria specifically did and what the measurable result was. The migration data you cite later (40% reduction in deployment time) is strong — lead with evidence like that instead of editorial praise.
+
+---
+
+### 4. R8 — Assessment example missing its result
+
+> "Maria led the platform migration across three business units, coordinating with 12 engineering teams."
+
+This names a situation and an action but no result. What happened because Maria led this? Did the migration ship on time? What was the business impact? How does "coordinating with 12 teams" compare to what's expected at the current level vs. the next level?
+
+**What to fix:** Complete the SBI: what was the measurable outcome of the migration? You mention a 40% reduction in deployment time elsewhere — if that's from this migration, attach it here.
+
+---
+
+### 5. R9 — Undefined acronyms
+
+The following appear without definition: "TPM" (first use), "SRE," "OKR review," "P0 incident." A reviewer from outside your org may not share this vocabulary.
+
+**What to fix:** Spell out each acronym on first use. For internal processes like "OKR review," add a one-phrase description of what it involves.
+
+---
+
+### What's Working
+
+The migration metrics (40% reduction in deployment time, zero rollbacks across three business units) are exactly the kind of evidence that earns credibility — specific, measurable, tied to a real outcome. Use these as the model for every other example in the document.
+
+The Growth Areas section exists and identifies real gaps, which puts this doc ahead of most first drafts. The gaps just need remediation plans attached to them.
+
+---
+
+**Priority order for revisions:**
+1. Add remediation plans to every growth area — right now they read as identified but unaddressed.
+2. Rewrite Scope of Role to be about the job, not the person.
+3. Replace subjective language in the Assessment with evidence.
+4. Complete the migration example with its result.
+5. Define all undefined acronyms in one pass.
