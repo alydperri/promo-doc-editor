@@ -49,7 +49,7 @@ Paste or upload your draft (full document or a single section) and tell the edit
 - "I'm providing promotion feedback for a colleague. Review my draft."
 - "Review my full promo doc."
 
-The editor returns structured critique: which sections were reviewed, an overall assessment, specific findings (each with the passage, the rule violated, why it fails, and what to fix), what's working, and a priority order for revisions. Every finding cites a numbered rule from the rubric — R5, R8, W3 — so you can trace the reasoning.
+The editor returns structured critique: which sections were reviewed, an overall assessment, specific findings (each with the passage, the rule violated, why it fails, and what to fix), what's working, and a priority order for revisions. Every finding cites a numbered rule from the rubric — R5, R8, W3 — so you can trace the reasoning. See `examples.md` → "Full output example" for a complete end-to-end critique.
 
 ## Self-check
 
