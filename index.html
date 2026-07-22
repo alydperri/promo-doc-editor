@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promotion Document Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,monospace;
+  --ink:#1a1a18;
+  --ink-soft:#4a4a45;
+  --ink-muted:#8a8a82;
+  --paper:#faf9f6;
+  --paper-warm:#f3f1ec;
+  --rule:#ddd9d0;
+  --accent:#7a5230;
+
+  --lavender:#f0ecfb;--lavender-text:#5b4a9e;--lavender-border:#d4cdef;
+  --sky:#e8f2fb;--sky-text:#2e6da4;--sky-border:#c0d8f0;
+  --mint:#e6f5ef;--mint-text:#2d7a56;--mint-border:#b5dfc9;
+  --rose:#fceef0;--rose-text:#b04a5a;--rose-border:#f0c8cf;
+  --peach:#fdf2e9;--peach-text:#9e6630;--peach-border:#f0d8ba;
+
+  --max-w:920px;
+  --nav-h:3.25rem;
+}
+html{font-size:16px;scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 2rem)}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* --- nav --- */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,249,246,0.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+  height:var(--nav-h);
+}
+nav .nav-inner{
+  max-width:var(--max-w);margin:0 auto;padding:0 2rem;
+  height:100%;
+  display:flex;align-items:center;justify-content:space-between;
+}
+nav .nav-brand{
+  font-family:var(--serif);font-size:0.9375rem;font-weight:500;
+  color:var(--ink);text-decoration:none;
+}
+nav .nav-links{display:flex;gap:1.75rem;align-items:center}
+nav .nav-links a{
+  font-size:0.8125rem;font-weight:500;
+  color:var(--ink-muted);text-decoration:none;
+  transition:color 0.15s;
+}
+nav .nav-links a:hover{color:var(--ink)}
+nav .nav-links a.gh{
+  display:inline-flex;align-items:center;gap:0.375rem;
+  color:var(--ink-soft);
+  padding:0.3rem 0.75rem;
+  border:1px solid var(--rule);
+  border-radius:6px;
+  transition:background 0.15s,border-color 0.15s;
+}
+nav .nav-links a.gh:hover{background:var(--paper-warm);border-color:var(--ink-muted)}
+nav .nav-links a.gh svg{width:14px;height:14px}
+
+/* --- layout --- */
+.container{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+section{padding:5rem 0}
+.section-num{
+  font-family:var(--mono);
+  font-size:0.75rem;
+  color:var(--ink-muted);
+  letter-spacing:0.04em;
+  display:block;
+  margin-bottom:0.75rem;
+}
+
+/* --- typography --- */
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.3}
+h1{font-size:2.75rem;letter-spacing:-0.025em;line-height:1.15}
+h2{font-size:1.625rem;margin-bottom:1.5rem;letter-spacing:-0.01em}
+h3{font-size:1.0625rem}
+p{color:var(--ink-soft);max-width:62ch}
+p+p{margin-top:1rem}
+
+/* --- hero --- */
+.hero{padding:7rem 0 5rem}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:3rem;
+  align-items:start;
+}
+.hero h1{margin-bottom:1.75rem;max-width:16ch}
+.hero .tagline{
+  font-family:var(--serif);
+  font-size:1.25rem;
+  font-weight:300;
+  color:var(--ink-soft);
+  max-width:56ch;
+  line-height:1.65;
+}
+.hero .cta-row{margin-top:2.5rem;display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap}
+
+/* hero doc illustration */
+.hero-doc{
+  margin-top:1rem;
+  position:relative;
+}
+.hero-doc .doc-page{
+  background:#fff;
+  border:1px solid var(--rule);
+  border-radius:8px;
+  padding:1.75rem 1.5rem 1.5rem;
+  position:relative;
+}
+.hero-doc .doc-line{
+  height:6px;
+  border-radius:3px;
+  margin-bottom:0.5rem;
+}
+.hero-doc .doc-line.w100{width:100%}
+.hero-doc .doc-line.w85{width:85%}
+.hero-doc .doc-line.w70{width:70%}
+.hero-doc .doc-line.w60{width:60%}
+.hero-doc .doc-line.w45{width:45%}
+.hero-doc .doc-line.w90{width:90%}
+.hero-doc .doc-line.muted{background:var(--paper-warm)}
+.hero-doc .doc-line.struck{
+  background:var(--rose);
+  position:relative;
+}
+.hero-doc .doc-line.struck::after{
+  content:"";
+  position:absolute;
+  top:50%;left:0;right:0;
+  height:1.5px;
+  background:var(--rose-text);
+  opacity:0.4;
+}
+.hero-doc .doc-gap{height:1rem}
+.hero-doc .annotation{
+  position:absolute;
+  right:-12px;
+  transform:translateX(50%);
+  font-family:var(--sans);
+  font-size:0.625rem;
+  font-weight:500;
+  padding:0.1875rem 0.5rem;
+  border-radius:20px;
+  border:1px solid;
+  white-space:nowrap;
+}
+.hero-doc .annotation.a1{top:2.25rem;background:var(--sky);color:var(--sky-text);border-color:var(--sky-border)}
+.hero-doc .annotation.a2{top:6rem;background:var(--rose);color:var(--rose-text);border-color:var(--rose-border)}
+.hero-doc .annotation.a3{top:9.5rem;background:var(--mint);color:var(--mint-text);border-color:var(--mint-border)}
+.hero-doc .doc-header{
+  font-family:var(--mono);
+  font-size:0.625rem;
+  color:var(--ink-muted);
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  margin-bottom:1rem;
+  padding-bottom:0.625rem;
+  border-bottom:1px solid var(--paper-warm);
+}
+
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:var(--sans);font-size:0.875rem;font-weight:500;
+  padding:0.625rem 1.5rem;
+  border-radius:8px;
+  text-decoration:none;
+  transition:all 0.15s;
+}
+.btn-primary{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.btn-primary:hover{background:#333330}
+.btn-secondary{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+.btn-secondary:hover{background:var(--paper-warm);border-color:var(--ink-muted)}
+.btn svg{width:16px;height:16px}
+.hero-divider{margin-top:5rem;border:none;border-top:1px solid var(--rule)}
+
+/* --- philosophy --- */
+.philosophy blockquote{
+  font-family:var(--serif);
+  font-size:1.375rem;
+  font-weight:400;
+  line-height:1.55;
+  color:var(--ink);
+  border-left:3px solid var(--lavender-text);
+  padding-left:1.5rem;
+  margin:1.5rem 0 2rem;
+  max-width:54ch;
+}
+
+/* --- example output --- */
+.example-output{
+  margin-top:2rem;
+  background:#fff;
+  border:1px solid var(--rule);
+  border-radius:10px;
+  overflow:hidden;
+}
+.example-output .example-bar{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  padding:0.75rem 1.5rem;
+  background:var(--paper-warm);
+  border-bottom:1px solid var(--rule);
+  font-size:0.75rem;
+  font-weight:500;
+  color:var(--ink-muted);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+.example-output .example-bar .dot{
+  width:8px;height:8px;border-radius:50%;
+}
+.example-output .example-body{padding:1.75rem 1.75rem 2rem}
+.example-output .example-body .eo-section{font-size:0.8125rem;color:var(--ink-muted);margin-bottom:0.375rem;font-weight:500}
+.example-output .example-body .eo-overall{
+  font-family:var(--serif);
+  font-size:1rem;
+  color:var(--ink-soft);
+  line-height:1.65;
+  margin-bottom:2rem;
+  max-width:64ch;
+}
+.example-output .finding{
+  border-left:3px solid var(--sky-border);
+  padding-left:1.25rem;
+  margin-bottom:1.75rem;
+}
+.example-output .finding:last-child{margin-bottom:0}
+.example-output .finding .rule-tag{margin-bottom:0.375rem}
+.example-output .finding .quoted{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:0.8125rem;
+  color:var(--ink-muted);
+  background:var(--paper);
+  border:1px solid var(--paper-warm);
+  padding:0.625rem 0.875rem;
+  border-radius:6px;
+  margin:0.5rem 0 0.75rem;
+  line-height:1.6;
+}
+.example-output .finding p{font-size:0.875rem;line-height:1.65;max-width:none}
+.example-output .finding p strong{color:var(--ink);font-weight:500}
+.example-output .fix-label{
+  font-size:0.75rem;font-weight:500;
+  color:var(--mint-text);
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  margin-top:0.75rem;
+  margin-bottom:0.25rem;
+}
+.example-output .fix-text{font-size:0.8125rem;color:var(--ink-soft);line-height:1.6;max-width:none}
+
+/* --- comparison --- */
+.compare-note{
+  margin-top:2.5rem;
+  padding:1.25rem 1.5rem;
+  background:var(--peach);
+  border:1px solid var(--peach-border);
+  border-radius:8px;
+  font-size:0.875rem;
+  color:var(--peach-text);
+  line-height:1.6;
+}
+.compare-note strong{font-weight:500}
+
+/* --- rule tags --- */
+.rule-tag{
+  font-family:var(--sans);
+  font-size:0.6875rem;
+  font-weight:500;
+  padding:0.1875rem 0.625rem;
+  border-radius:20px;
+  display:inline-block;
+  border:1px solid;
+}
+.rule-tag.lavender{background:var(--lavender);color:var(--lavender-text);border-color:var(--lavender-border)}
+.rule-tag.sky{background:var(--sky);color:var(--sky-text);border-color:var(--sky-border)}
+.rule-tag.mint{background:var(--mint);color:var(--mint-text);border-color:var(--mint-border)}
+.rule-tag.rose{background:var(--rose);color:var(--rose-text);border-color:var(--rose-border)}
+.rule-tag.peach{background:var(--peach);color:var(--peach-text);border-color:var(--peach-border)}
+
+/* --- what it reviews --- */
+.reviews-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-top:2rem;
+}
+.review-card{
+  padding:1.5rem;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid var(--rule);
+  transition:border-color 0.15s;
+}
+.review-card:hover{border-color:var(--ink-muted)}
+.review-card h3{margin-bottom:0.5rem;font-size:1rem}
+.review-card p{font-size:0.8125rem;color:var(--ink-muted);line-height:1.6}
+.review-card .card-accent{
+  width:6px;height:6px;border-radius:50%;
+  display:inline-block;
+  margin-right:0.375rem;
+  vertical-align:1px;
+}
+.reviews-note{
+  margin-top:1.25rem;
+  font-size:0.8125rem;
+  color:var(--ink-muted);
+  font-style:italic;
+}
+
+/* --- rubric --- */
+#rubric{border-top:1px solid var(--rule)}
+.rubric-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem}
+.rubric-header .rule-count{
+  font-family:var(--mono);
+  font-size:0.8125rem;
+  color:var(--ink-muted);
+  background:var(--paper-warm);
+  padding:0.25rem 0.75rem;
+  border-radius:20px;
+}
+.rubric-section{margin-top:2rem}
+.rubric-section:first-of-type{margin-top:1.5rem}
+.rubric-section h3{
+  font-size:0.75rem;
+  font-family:var(--sans);
+  font-weight:500;
+  color:var(--ink-muted);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  margin-bottom:0.625rem;
+}
+.rubric-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  list-style:none;
+}
+.rubric-list li{
+  font-size:0.8125rem;
+  font-weight:500;
+  padding:0.3125rem 0.875rem;
+  border-radius:20px;
+  white-space:nowrap;
+  border:1px solid;
+}
+.rubric-list.c-lavender li{background:var(--lavender);color:var(--lavender-text);border-color:var(--lavender-border)}
+.rubric-list.c-sky li{background:var(--sky);color:var(--sky-text);border-color:var(--sky-border)}
+.rubric-list.c-mint li{background:var(--mint);color:var(--mint-text);border-color:var(--mint-border)}
+.rubric-list.c-rose li{background:var(--rose);color:var(--rose-text);border-color:var(--rose-border)}
+.rubric-list.c-peach li{background:var(--peach);color:var(--peach-text);border-color:var(--peach-border)}
+
+/* --- how it works --- */
+#setup{border-top:1px solid var(--rule)}
+.steps{
+  counter-reset:step;
+  list-style:none;
+  margin-top:2rem;
+}
+.steps li{
+  counter-increment:step;
+  display:flex;
+  gap:1.25rem;
+  align-items:flex-start;
+}
+.steps li+li{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--paper-warm)}
+.steps li::before{
+  content:counter(step);
+  flex-shrink:0;
+  width:2.25rem;height:2.25rem;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);
+  font-size:0.8125rem;
+  color:var(--lavender-text);
+  background:var(--lavender);
+  border:1px solid var(--lavender-border);
+  border-radius:50%;
+}
+.steps li strong{color:var(--ink);font-weight:500;display:block;margin-bottom:0.25rem}
+.steps li span{font-size:0.9375rem;color:var(--ink-soft)}
+.steps li code{
+  font-family:var(--mono);
+  font-size:0.8125rem;
+  background:var(--paper-warm);
+  padding:0.125rem 0.5rem;
+  border-radius:4px;
+  color:var(--ink-soft);
+}
+
+/* --- customize --- */
+#customize{border-top:1px solid var(--rule)}
+.customize-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-top:2rem;
+}
+.customize-card{
+  padding:1.5rem;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid var(--rule);
+}
+.customize-card h3{margin-bottom:0.5rem;font-size:1rem}
+.customize-card p{font-size:0.8125rem;color:var(--ink-muted);line-height:1.6}
+.customize-card .mono{
+  font-family:var(--mono);
+  font-size:0.75rem;
+  color:var(--sky-text);
+  background:var(--sky);
+  border:1px solid var(--sky-border);
+  padding:0.125rem 0.5rem;
+  border-radius:4px;
+  display:inline-block;
+  margin-bottom:0.75rem;
+}
+
+/* --- provenance (removed) --- */
+
+/* --- footer --- */
+.footer{
+  padding:4rem 0 3rem;
+  border-top:1px solid var(--rule);
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.footer p{font-size:0.8125rem;color:var(--ink-muted);max-width:40ch}
+.footer .btn{font-size:0.8125rem;padding:0.5rem 1.25rem}
+
+/* --- responsive --- */
+@media(max-width:640px){
+  h1{font-size:2rem}
+  .hero{padding:5rem 0 3rem}
+  section{padding:3.5rem 0}
+  .reviews-grid,.customize-grid{grid-template-columns:1fr}
+  .philosophy blockquote{font-size:1.125rem}
+  nav .nav-brand{display:none}
+  nav .nav-links{gap:1rem;width:100%;justify-content:space-between}
+  .footer-inner{flex-direction:column;gap:1.5rem;text-align:center}
+  .example-output .example-body{padding:1.25rem}
+  .hero-grid{grid-template-columns:1fr;gap:0}
+  .hero-doc{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Promo Doc Editor</a>
+    <div class="nav-links">
+      <a href="#philosophy">Philosophy</a>
+      <a href="#example">Example</a>
+      <a href="#rubric">Rubric</a>
+      <a href="#setup">Setup</a>
+      <a href="https://github.com" class="gh">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <h1>Your promo doc is the decision surface. Make it survive the room.</h1>
+        <p class="tagline">An editor that critiques promotion documents against 23 rules and hands them back to you to fix. Built from years of real promo docs, real focus groups, and the patterns that separate cases that land from cases that don't.</p>
+        <div class="cta-row">
+          <a href="#setup" class="btn btn-primary">Get set up</a>
+          <a href="#example" class="btn btn-secondary">See an example &darr;</a>
+        </div>
+      </div>
+      <div class="hero-doc">
+        <div class="doc-page">
+          <div class="doc-header">Promotion assessment</div>
+          <div class="doc-line w100 muted"></div>
+          <div class="doc-line w90 muted"></div>
+          <div class="doc-line w85 struck"></div>
+          <div class="doc-line w70 muted"></div>
+          <div class="doc-gap"></div>
+          <div class="doc-line w100 muted"></div>
+          <div class="doc-line w85 muted"></div>
+          <div class="doc-line w60 struck"></div>
+          <div class="doc-line w90 muted"></div>
+          <div class="doc-gap"></div>
+          <div class="doc-line w90 muted"></div>
+          <div class="doc-line w100 muted"></div>
+          <div class="doc-line w70 muted"></div>
+          <div class="doc-line w45 muted"></div>
+          <span class="annotation a1">R5 Objective</span>
+          <span class="annotation a2">R8 Specific</span>
+          <span class="annotation a3">R4 Balanced</span>
+        </div>
+      </div>
+    </div>
+    <hr class="hero-divider">
+  </div>
+</header>
+
+<section id="philosophy" class="philosophy">
+  <div class="container">
+    <span class="section-num">01 &mdash; Philosophy</span>
+    <h2>An editor is not a rewriter</h2>
+    <blockquote>Writing is thinking. The discipline of putting a promotion case into words forces the manager to confront whether the evidence actually supports the decision. When the writing is hard, that difficulty is information.</blockquote>
+    <p>Most AI tools will identify the problems in your promo doc and then hand you a rewritten version. The problems get fixed but the thinking gets skipped. This editor doesn't rewrite anything. It points at the three lines that don't work, cites the rule they violate, explains why a reviewer would flag them, and hands the document back to you. You do the fixing. That's where the thinking happens.</p>
+  </div>
+</section>
+
+<section id="example" style="border-top:1px solid var(--rule)">
+  <div class="container">
+    <span class="section-num">02 &mdash; Example output</span>
+    <h2>What a critique looks like</h2>
+    <p>Here's an excerpt from the editor reviewing a Promotion Assessment section. Every finding cites a rule, quotes the passage, and tells the writer what to fix &mdash; without rewriting a word.</p>
+
+    <div class="example-output">
+      <div class="example-bar">
+        <span class="dot" style="background:var(--mint-text)"></span>
+        Sample output &mdash; Promotion Assessment review (excerpt)
+      </div>
+      <div class="example-body">
+        <div class="eo-section">Overall assessment</div>
+        <p class="eo-overall">The assessment has strong data in places but reads more like a highlight reel than a promotion argument. Several key claims are unsupported, and the language leans heavily on opinion where evidence should carry the weight.</p>
+
+        <div class="finding">
+          <span class="rule-tag sky">R5 Objective</span>
+          <div class="quoted">"Jim's amazing thought leadership on solving for scale has set an almost unreachable bar. He entirely owned the holistic analytical activity and totally revolutionized how we think about offers."</div>
+          <p>Exaggerated language throughout: "amazing," "unreachable bar," "entirely owned," "totally revolutionized." These are opinions, not evidence. A promo reviewer reading this will question your judgment, not Jim's performance.</p>
+          <div class="fix-label">What to fix</div>
+          <p class="fix-text">Strip the superlatives. For each claim, ask: what specific thing did Jim do, and what was the measurable result? "Jim built the forecasting model for offer cancellations, predicting rates within 3% accuracy across Q1-Q3" is defensible. "Totally revolutionized" is not.</p>
+        </div>
+
+        <div class="finding">
+          <span class="rule-tag sky">R8 Specific</span>
+          <div class="quoted">"He entirely owned the holistic analytical activity."</div>
+          <p>This names an action but no result. What was the "analytical activity"? What did Jim produce? What changed because of it? A reviewer outside your team has no idea what this means.</p>
+          <div class="fix-label">What to fix</div>
+          <p class="fix-text">Complete the example: what was the situation, what did Jim do, and what was the outcome? Use SBI or STAR. If the analytical work led to a decision, name the decision and its impact.</p>
+        </div>
+
+        <div class="finding">
+          <span class="rule-tag sky">R4 Balanced</span>
+          <div class="quoted">"There is no playbook for this business&hellip; Jim's amazing thought leadership&hellip; totally revolutionized&hellip;"</div>
+          <p>Every claim in this passage is a pure win with no nuance. What went wrong? What did Jim learn? A balanced assessment that acknowledges misses is more credible than a highlights reel.</p>
+          <div class="fix-label">What to fix</div>
+          <p class="fix-text">Add the context a reviewer would want: what was hard about this, where did Jim stumble, and how did he recover? One honest miss strengthens the credibility of every win around it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="compare-note">
+      <strong>Notice what's missing?</strong> No rewritten version. No "here's how I'd say it." The editor tells you what's broken and why &mdash; you decide how to fix it. The full output also includes which sections were reviewed, what's working well, and a prioritized revision order.
+    </div>
+  </div>
+</section>
+
+<section id="coverage" style="border-top:1px solid var(--rule)">
+  <div class="container">
+    <span class="section-num">03 &mdash; Coverage</span>
+    <h2>What it reviews</h2>
+    <p>The editor evaluates promotion documents against criteria organized around four core sections. Your doc doesn't need to use these exact names &mdash; the editor maps your content to the relevant criteria regardless of how your organization structures its promotion documents.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <h3><span class="card-accent" style="background:var(--lavender-text)"></span>Scope of role</h3>
+        <p>Is it about the job, not the person? Is it specific to this role, not a generic description? Does it align to next-level expectations?</p>
+      </div>
+      <div class="review-card">
+        <h3><span class="card-accent" style="background:var(--sky-text)"></span>Promotion assessment</h3>
+        <p>Is it balanced, objective, criteria-focused, and specific? Does it stand on its own without insider knowledge?</p>
+      </div>
+      <div class="review-card">
+        <h3><span class="card-accent" style="background:var(--mint-text)"></span>Growth areas</h3>
+        <p>Are they present, honest, and specific? Is there a remediation plan? Has feedback been incorporated?</p>
+      </div>
+      <div class="review-card">
+        <h3><span class="card-accent" style="background:var(--rose-text)"></span>Feedback</h3>
+        <p>Both reasons to promote and reasons not to promote? A clear vote? Performance examples, not personality descriptions?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rubric">
+  <div class="container">
+    <span class="section-num">04 &mdash; The rubric</span>
+    <div class="rubric-header">
+      <h2 style="margin-bottom:0">Every finding cites a rule</h2>
+      <span class="rule-count">23 rules</span>
+    </div>
+    <p>No finding without a citation. No vague "consider improving this." The writer can trace every piece of feedback back to a specific standard.</p>
+    <div class="rubric-section">
+      <h3>Scope of role</h3>
+      <ul class="rubric-list c-lavender">
+        <li>R1 About the job, not the person</li>
+        <li>R2 Specific, not generic</li>
+        <li>R3 Criteria-aligned</li>
+      </ul>
+    </div>
+    <div class="rubric-section">
+      <h3>Promotion assessment</h3>
+      <ul class="rubric-list c-sky">
+        <li>R4 Balanced</li>
+        <li>R5 Objective</li>
+        <li>R6 Values-aligned</li>
+        <li>R7 Criteria-focused</li>
+        <li>R8 Specific</li>
+        <li>R9 Stands on its own</li>
+        <li>R10 Clear and concise</li>
+      </ul>
+    </div>
+    <div class="rubric-section">
+      <h3>Growth areas</h3>
+      <ul class="rubric-list c-mint">
+        <li>R11 No missing growth areas</li>
+        <li>R12 Objective</li>
+        <li>R13 Criteria-focused</li>
+        <li>R14 Specific</li>
+        <li>R15 Gaps being closed</li>
+        <li>R16 Incorporates feedback</li>
+      </ul>
+    </div>
+    <div class="rubric-section">
+      <h3>Feedback</h3>
+      <ul class="rubric-list c-rose">
+        <li>R17 Balanced feedback</li>
+        <li>R18 Clear vote</li>
+      </ul>
+    </div>
+    <div class="rubric-section">
+      <h3>Writing quality &mdash; all sections</h3>
+      <ul class="rubric-list c-peach">
+        <li>W1 Clarity above all</li>
+        <li>W2 Active voice</li>
+        <li>W3 No jargon without context</li>
+        <li>W4 Cut what doesn't serve</li>
+        <li>W5 No format over substance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="setup">
+  <div class="container">
+    <span class="section-num">05 &mdash; Setup</span>
+    <h2>Drop it in and go</h2>
+    <ol class="steps">
+      <li>
+        <div>
+          <strong>Add the folder to Claude</strong>
+          <span>Drop the <code>promo-doc-editor</code> folder into a Claude project or point Claude Code at it. Claude becomes the editor.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Share your draft</strong>
+          <span>Paste or upload your full document or a single section. Tell the editor which part it is. Works for any company, any role, any level.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Get structured critique</strong>
+          <span>Every finding cites a rule, quotes the passage, explains the gap, and tells you what to fix. No rewrites. No fluff.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="customize">
+  <div class="container">
+    <span class="section-num">06 &mdash; Customize</span>
+
+    <h2>Works out of the box. Calibrates to your org.</h2>
+    <p>Strong critique on writing quality, specificity, objectivity, and structure without any configuration. Plug in two optional files to unlock company-specific evaluation.</p>
+    <div class="customize-grid">
+      <div class="customize-card">
+        <span class="mono">company-values.md</span>
+        <h3>Company values</h3>
+        <p>Your organization's values or leadership principles. The editor checks whether performance examples connect to your values vocabulary.</p>
+      </div>
+      <div class="customize-card">
+        <span class="mono">leveling-guide.md</span>
+        <h3>Leveling guide</h3>
+        <p>The expectations for the relevant role and level. The editor checks whether the assessment evaluates against the right criteria for the proposed level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <p>Built with interpretable context methodology.<br>Each file does one job well.</p>
+      <a href="https://github.com" class="btn btn-primary" style="flex-shrink:0">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('nav .nav-links a:not(.gh)');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.style.color='');
+      const active=document.querySelector(`nav a[href="#${e.target.id}"]`);
+      if(active)active.style.color='var(--ink)';
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+
+</body>
+</html>
