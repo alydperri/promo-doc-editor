@@ -34,7 +34,7 @@ Use this checklist to evaluate any section of a promotion document or standalone
 ## Specific (R8, R14)
 
 - [ ] Does each example answer: What was the situation? What did the person do? What was the result?
-- [ ] Are impact claims backed by data, metrics, or measurable outcomes?
+- [ ] Are impact claims backed by specific evidence — data where available, or detailed qualitative outcomes where not?
 - [ ] Is the employee's individual contribution distinguished from the team's achievement?
 - [ ] Are growth areas described with the same level of detail as strengths?
 

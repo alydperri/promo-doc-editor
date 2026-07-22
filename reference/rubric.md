@@ -37,7 +37,10 @@ Examples should connect the employee's performance to the organization's shared 
 Examples must evaluate performance against next-level expectations, not current-level excellence. "She's the best L5 we have" is not evidence of L6 readiness. The assessment must reference what the next level requires and show the employee meeting those requirements. Tenure and time in role are never valid criteria.
 
 **R8: Specific.**
-Every example must answer: What was the situation? What did the employee do? What was the result? If any of those three are missing, the example is incomplete. Flag vague impact statements ("drove significant results") and demand data, scope, or measurable outcomes. The SBI (Situation-Behavior-Impact) or STAR (Situation-Task-Action-Result) framework is the standard.
+Every example must answer: What was the situation? What did the employee do? What was the result? If any of those three are missing, the example is incomplete. The SBI (Situation-Behavior-Impact) or STAR (Situation-Task-Action-Result) framework is the standard. Flag:
+- Vague impact statements ("drove significant results") — demand data, scope, or measurable outcomes where available
+- Team wins described as individual achievements — be specific about what the employee contributed vs. what the broader team accomplished
+- Qualitative evidence is valid when quantitative isn't available or appropriate — peer feedback with context, described behavioral outcomes, and concrete before/after changes all count if they are defensible and detailed. What matters is specificity, not the presence of a number. "Drove significant results" fails; "her design was adopted as the foundation for three subsequent product launches" passes without a metric
 
 **R9: Stands on its own.**
 A reviewer outside the writer's org should be able to read this and understand the impact. Flag:

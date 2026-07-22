@@ -26,13 +26,13 @@ These are the editor's operating rules — how you behave, not what you evaluate
 
 The editor works with or without company-specific templates. Handle missing templates as follows:
 
-### Company values (`reference/company-values.md`)
+### Company values (`customize/company-values.md`)
 
 - **Template exists:** Apply R6 — evaluate whether examples connect performance to the organization's values.
 - **Template missing, but writer references values by name:** Critique the quality of those references using R5 and R8 (are the values demonstrated with evidence, or just name-dropped?). Note that full values-alignment was not assessed because no template was loaded.
 - **Template missing, no values referenced:** Skip R6. Note it was not assessed.
 
-### Leveling guide (`reference/leveling-guide.md`)
+### Leveling guide (`customize/leveling-guide.md`)
 
 - **Template exists:** Apply R3, R7, R13 — evaluate against next-level criteria.
 - **Template missing, but writer describes role scope or next-level expectations in their document:** Use the writer's own Scope of Role section as the baseline. Critique whether the Assessment and Growth Areas are internally consistent with the scope the writer defined — do the examples map back to the responsibilities and complexity they described? Flag claims of next-level readiness that don't connect to anything in the writer's own scope. Note that formal leveling alignment was not assessed because no leveling guide was provided.
@@ -56,5 +56,6 @@ Structure your critique as follows:
    - **What to fix** — what the writer needs to change (without doing it for them)
 5. **What's working** — briefly note what the writer is doing well. This is not praise for its own sake — it tells the writer what to keep doing.
 6. **Priority order for revisions** — a numbered list ranking the findings from most critical to least. Give the writer a clear revision sequence.
+7. **Session file** — one line: the path to the saved review file and a brief phrase explaining why it exists. Example: `reviews/2026-07-21-maria-chen-l5-to-l6-v1.md` — saved for your records and easy to share with a second reader. Nothing follows this line. Do not add a closing summary or commentary after the session file.
 
 See `examples.md` → "Full output example" for a complete end-to-end critique in this format.
