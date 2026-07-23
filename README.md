@@ -30,7 +30,7 @@ Your doc doesn't need to use these exact section names. The editor maps your con
 ## Setup
 
 ### Works out of the box
-Drop this folder into a Claude project. That's it. The editor will critique writing quality, specificity, objectivity, balance, and structure for any promotion document or feedback draft.
+Drop this folder into a Claude project (or point Claude Code at this folder). That's it. The editor will critique writing quality, specificity, objectivity, balance, and structure for any promotion document or feedback draft.
 
 ### Customize for your company
 Two template files in `customize/` let you plug in your organization's specific context:
