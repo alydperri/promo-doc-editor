@@ -30,7 +30,20 @@ Your doc doesn't need to use these exact section names. The editor maps your con
 ## Setup
 
 ### Works out of the box
-Drop this folder into a Claude project (or point Claude Code at this folder). That's it. The editor will critique writing quality, specificity, objectivity, balance, and structure for any promotion document or feedback draft.
+
+**Claude Code (recommended):** Point Claude Code at this folder. The
+editor loads automatically.
+
+**Claude Projects:** Paste the contents of `CLAUDE.md` into your project
+instructions, then upload all remaining files as project knowledge —
+except the `CONTEXT.md` files inside subfolders (`reference/`,
+`customize/`, `reviews/`), which are folder contracts for Claude Code
+and aren't needed in Projects. The editor won't save review files to
+disk in Projects — output stays in chat.
+
+Either way, the editor will critique writing quality, specificity,
+objectivity, balance, and structure for any promotion document or
+feedback draft.
 
 ### Customize for your company
 Two template files in `customize/` let you plug in your organization's specific context:
