@@ -269,6 +269,40 @@ p+p{margin-top:1rem}
 }
 .example-output .fix-text{font-size:0.8125rem;color:var(--ink-soft);line-height:1.6;max-width:none}
 
+/* --- tabs --- */
+.example-tabs{
+  display:flex;
+  gap:0;
+  margin-top:2rem;
+  border-bottom:1px solid var(--rule);
+}
+.example-tabs button{
+  font-family:var(--sans);
+  font-size:0.8125rem;
+  font-weight:500;
+  padding:0.75rem 1.5rem;
+  background:none;
+  border:none;
+  border-bottom:2px solid transparent;
+  color:var(--ink-muted);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  transition:color 0.15s,border-color 0.15s;
+}
+.example-tabs button:hover{color:var(--ink-soft)}
+.example-tabs button.active{
+  color:var(--ink);
+  border-bottom-color:var(--accent);
+}
+.example-tabs button .dot{
+  width:7px;height:7px;border-radius:50%;
+  flex-shrink:0;
+}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
 /* --- comparison --- */
 .compare-note{
   margin-top:2.5rem;
@@ -476,7 +510,7 @@ p+p{margin-top:1rem}
       <a href="#example">Example</a>
       <a href="#rubric">Rubric</a>
       <a href="#setup">Setup</a>
-      <a href="https://github.com/alydperri/promo-doc-editor" class="gh">
+      <a href="https://github.com/alydperri/promo-doc-editor" class="gh" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         GitHub
       </a>
@@ -531,50 +565,125 @@ p+p{margin-top:1rem}
 
 <section id="example" style="border-top:1px solid var(--rule)">
   <div class="container">
-    <span class="section-num">02 &mdash; Example output</span>
-    <h2>What a critique looks like</h2>
-    <p>Here's an excerpt from the editor reviewing a Promotion Assessment section. Every finding cites a rule, quotes the passage, and tells the writer what to fix &mdash; without rewriting a word.</p>
+    <span class="section-num">02 &mdash; See it work</span>
+    <h2>A real draft, a real critique</h2>
+    <p>Below is a sample promotion document and the editor's actual output. The draft has genuine strengths &mdash; and real problems. See if you can spot them before the editor does.</p>
 
-    <div class="example-output">
-      <div class="example-bar">
+    <div class="example-tabs">
+      <button class="active" onclick="switchTab('draft',this)">
+        <span class="dot" style="background:var(--peach-text)"></span>
+        The draft
+      </button>
+      <button onclick="switchTab('critique',this)">
         <span class="dot" style="background:var(--mint-text)"></span>
-        Sample output &mdash; Promotion Assessment review (excerpt)
+        The critique
+      </button>
+    </div>
+
+    <div id="tab-draft" class="tab-panel active">
+      <div class="example-output" style="margin-top:0;border-top:none;border-radius:0 0 10px 10px">
+        <div class="example-body">
+          <h3 style="font-size:1rem;margin-bottom:1.25rem">Promotion Document: Priya Anand &mdash; Software Engineer to Senior Software Engineer</h3>
+
+          <div class="eo-section">Scope of Role</div>
+          <p style="margin-bottom:1.25rem;max-width:none">The Software Engineer on the Payments Platform team owns the design and maintenance of the payment reconciliation service, which processes approximately 2.3 million transactions daily across four regional configurations. The role requires regular coordination with Compliance, Fraud Detection, and the merchant-facing Product team to ensure regulatory changes are reflected in reconciliation logic. This position serves as the primary technical owner of a system where errors directly impact merchant revenue and customer trust.</p>
+
+          <div class="eo-section">Promotion Assessment</div>
+          <p style="margin-bottom:0.75rem;max-width:none">Priya led the redesign of our payment retry logic after we identified that failed transactions were being retried with stale payment tokens, causing a 4.2% false decline rate across EU merchants. She mapped the token lifecycle across three upstream services, identified that our retry window didn't account for token refresh timing in the EU region, and proposed a sliding retry window that syncs with each provider's token TTL. The initial proposal underestimated the variance in refresh timing across providers, which Priya caught during load testing and corrected before rollout. The fix reduced false declines from 4.2% to 0.8% within the first month and has since been adopted by two other regional payment teams.</p>
+          <p style="margin-bottom:0.75rem;max-width:none">In Q3, Priya took on the integration of our reconciliation pipeline with the new consolidated reporting system. She built the data transformation layer, wrote the integration tests, and onboarded the Reporting team on the new schema. Her work was transformational and the project was a big success.</p>
+          <p style="margin-bottom:1.25rem;max-width:none">Priya also drove the adoption of contract testing across the Payments Platform team, replacing our previous approach of relying on end-to-end tests that were slow and frequently broken. She built the initial contract testing framework, documented the migration path, and ran onboarding sessions for all six squads. End-to-end test suite runtime dropped from 45 minutes to 12 minutes, and broken-build incidents caused by cross-service contract violations fell by over 60%.</p>
+
+          <div class="eo-section">Growth Areas</div>
+          <p style="margin-bottom:1.25rem;max-width:none">Priya sometimes struggles with prioritization when she has multiple projects in flight. We've talked about it and she's aware that this is something she needs to work on as she moves into the Senior role, where she'll be expected to manage competing priorities more independently.</p>
+
+          <div class="eo-section">Feedback</div>
+          <p style="margin-bottom:0;max-width:none"><strong style="font-weight:500">Tom&aacute;s Reyes (Senior Software Engineer):</strong> &ldquo;Priya is one of the most reliable engineers I've worked with. Her work on the retry logic fix was impressive &mdash; she understood the problem faster than anyone else on the team and her solution was clean. I think she's ready for Senior. On growth areas, Priya can sometimes go deep on a technical problem and lose sight of the broader project timeline. On the reporting integration, there were a couple of weeks where she was heads-down on edge cases in the data transformation layer while the Reporting team was blocked waiting for the schema documentation. Once it was flagged she course-corrected quickly, but at the Senior level I'd expect her to manage those tradeoffs more proactively.&rdquo;</p>
+        </div>
       </div>
-      <div class="example-body">
-        <div class="eo-section">Overall assessment</div>
-        <p class="eo-overall">The assessment has strong data in places but reads more like a highlight reel than a promotion argument. Several key claims are unsupported, and the language leans heavily on opinion where evidence should carry the weight.</p>
+    </div>
 
-        <div class="finding">
-          <span class="rule-tag sky">R5 Objective</span>
-          <div class="quoted">"Jim's amazing thought leadership on solving for scale has set an almost unreachable bar. He entirely owned the holistic analytical activity and totally revolutionized how we think about offers."</div>
-          <p>Exaggerated language throughout: "amazing," "unreachable bar," "entirely owned," "totally revolutionized." These are opinions, not evidence. A promo reviewer reading this will question your judgment, not Jim's performance.</p>
-          <div class="fix-label">What to fix</div>
-          <p class="fix-text">Strip the superlatives. For each claim, ask: what specific thing did Jim do, and what was the measurable result? "Jim built the forecasting model for offer cancellations, predicting rates within 3% accuracy across Q1-Q3" is defensible. "Totally revolutionized" is not.</p>
-        </div>
+    <div id="tab-critique" class="tab-panel">
+      <div class="example-output" style="margin-top:0;border-top:none;border-radius:0 0 10px 10px">
+        <div class="example-body">
 
-        <div class="finding">
-          <span class="rule-tag sky">R8 Specific</span>
-          <div class="quoted">"He entirely owned the holistic analytical activity."</div>
-          <p>This names an action but no result. What was the "analytical activity"? What did Jim produce? What changed because of it? A reviewer outside your team has no idea what this means.</p>
-          <div class="fix-label">What to fix</div>
-          <p class="fix-text">Complete the example: what was the situation, what did Jim do, and what was the outcome? Use SBI or STAR. If the analytical work led to a decision, name the decision and its impact.</p>
-        </div>
+          <div class="eo-section">Sections reviewed</div>
+          <p style="font-size:0.875rem;margin-bottom:1.5rem;max-width:none">Scope of Role, Promotion Assessment, Growth Areas, Feedback (Tom&aacute;s Reyes)</p>
 
-        <div class="finding">
-          <span class="rule-tag sky">R4 Balanced</span>
-          <div class="quoted">"There is no playbook for this business&hellip; Jim's amazing thought leadership&hellip; totally revolutionized&hellip;"</div>
-          <p>Every claim in this passage is a pure win with no nuance. What went wrong? What did Jim learn? A balanced assessment that acknowledges misses is more credible than a highlights reel.</p>
-          <div class="fix-label">What to fix</div>
-          <p class="fix-text">Add the context a reviewer would want: what was hard about this, where did Jim stumble, and how did he recover? One honest miss strengthens the credibility of every win around it.</p>
+          <div class="eo-section">Overall assessment</div>
+          <p class="eo-overall">The document has real strengths &mdash; the Scope of Role is clean, the retry logic and contract testing examples are both model-quality, and Tom&aacute;s's feedback is balanced and specific. The two problems are consequential: the reporting integration paragraph is the weakest example in the Assessment and creates a credibility problem when read next to the feedback, and the Growth Areas section has no remediation plan and doesn't engage with Tom&aacute;s's specific observation. Fix those two sections and this document will be significantly stronger.</p>
+
+          <div class="eo-section">Rules not assessed</div>
+          <p style="font-size:0.8125rem;margin-bottom:2rem;max-width:none;color:var(--ink-muted)">R6 &mdash; company-values.md is not configured; values alignment was not assessed. R3, R7, R13 &mdash; no leveling guide was provided; these rules were applied against the writer's own Scope of Role as the internal baseline. Formal leveling alignment was not assessed.</p>
+
+          <div class="finding">
+            <span class="rule-tag sky">1. R4 + R5 + R8</span>
+            <div class="quoted">&ldquo;In Q3, Priya took on the integration of our reconciliation pipeline with the new consolidated reporting system. She built the data transformation layer, wrote the integration tests, and onboarded the Reporting team on the new schema. Her work was transformational and the project was a big success.&rdquo;</div>
+            <p>Three problems, same paragraph. &ldquo;Transformational&rdquo; and &ldquo;big success&rdquo; are editorial opinion, not evidence (R5). The SBI is incomplete &mdash; the paragraph describes the situation and what Priya built, but has no result (R8). What did the integration enable? What did the Reporting team gain? A reviewer has nothing to evaluate here except that Priya did the work.</p>
+            <p style="margin-top:0.75rem">Most damaging: Tom&aacute;s's feedback describes a two-week period where Priya was heads-down on edge cases in the data transformation layer while the Reporting team was blocked waiting for schema documentation. The Assessment calls this project a &ldquo;big success&rdquo; with no acknowledgment of that incident (R4). A reviewer reading both sections will notice the gap.</p>
+            <div class="fix-label">What to fix</div>
+            <p class="fix-text">Complete the SBI &mdash; describe the result the integration produced, not just what Priya built. Cut &ldquo;transformational&rdquo; and &ldquo;big success&rdquo; and replace with what the outcome actually was. Then decide how to handle the blocking incident: either reference it here with resolution, or address it in Growth Areas &mdash; but the Assessment needs to be accurate about what &ldquo;success&rdquo; means in context of that project.</p>
+          </div>
+
+          <div class="finding">
+            <span class="rule-tag mint">2. R14 + R15 + R16</span>
+            <div class="quoted">&ldquo;Priya sometimes struggles with prioritization when she has multiple projects in flight. We've talked about it and she's aware that this is something she needs to work on as she moves into the Senior role, where she'll be expected to manage competing priorities more independently.&rdquo;</div>
+            <p>&ldquo;Sometimes struggles with prioritization&rdquo; is vague &mdash; what specifically happened (R14)? Tom&aacute;s describes a concrete incident that belongs here as the evidence for the growth area. &ldquo;We've talked about it and she's aware&rdquo; is not a plan (R15). What specific actions is Priya taking? &ldquo;Aware&rdquo; is not a stage of remediation &mdash; it's the starting point.</p>
+            <p style="margin-top:0.75rem">Tom&aacute;s raises this growth area explicitly, but the Growth Areas section doesn't reference his feedback at all (R16). A reviewer will read Tom&aacute;s's observation and then find a growth area that seems disconnected from any real incident.</p>
+            <div class="fix-label">What to fix</div>
+            <p class="fix-text">Ground the growth area in the specific incident Tom&aacute;s describes &mdash; name what happened, what the consequence was, and that Priya course-corrected when flagged. Describe the remediation plan: specific actions, structures, and how you're tracking improvement. Acknowledge that this pattern was also observed by Tom&aacute;s.</p>
+          </div>
+
+          <div class="finding">
+            <span class="rule-tag lavender">3. R7</span>
+            <div class="quoted">The Assessment describes three things Priya did. It doesn't tell the reviewer why any of them represent Senior Software Engineer performance rather than strong Software Engineer performance.</div>
+            <p>The contract testing example &mdash; building a framework adopted across six squads, reducing runtime from 45 to 12 minutes, cutting broken-build incidents by 60% &mdash; has a clear organizational scope that exceeds what the Scope of Role describes as the current role. That's the Senior-level signal. But the document doesn't frame it that way. Same for the retry logic fix being adopted by two other regional payment teams: that reach beyond the immediate team is worth naming explicitly as next-level impact.</p>
+            <div class="fix-label">What to fix</div>
+            <p class="fix-text">For each example, add one sentence connecting it to what Senior SEs are expected to do &mdash; scope of influence, operating without a playbook, driving improvements that reach beyond the immediate system. The Scope of Role already defines the current-level boundary. Show where Priya crossed it.</p>
+          </div>
+
+          <div class="finding" style="margin-bottom:0">
+            <span class="rule-tag peach">4. R9</span>
+            <div class="quoted">&ldquo;...proposed a sliding retry window that syncs with each provider's token TTL.&rdquo;</div>
+            <p>&ldquo;TTL&rdquo; (time-to-live) isn't defined on first use. A reviewer from outside the engineering org may not know the term. &ldquo;Consolidated reporting system&rdquo; reads as an internal initiative &mdash; a reviewer outside the team doesn't know what it is.</p>
+            <div class="fix-label">What to fix</div>
+            <p class="fix-text">Spell out TTL on first use. Add a brief description of the consolidated reporting system &mdash; what it is and why it matters &mdash; so the integration work lands for an outside reviewer.</p>
+          </div>
+
+          <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--paper-warm)">
+            <div class="eo-section">What's working</div>
+            <p style="font-size:0.875rem;line-height:1.65;max-width:none;color:var(--ink-soft);margin-bottom:0.75rem">The Scope of Role does exactly what it should: it describes the role, not the person. No names, no performance language, specific enough to convey the complexity and stakes of the position.</p>
+            <p style="font-size:0.875rem;line-height:1.65;max-width:none;color:var(--ink-soft);margin-bottom:0.75rem">The retry logic example is the strongest in the document. Complete SBI, specific metrics (4.2% to 0.8% false decline rate), and includes the nuance that the initial proposal underestimated variance in provider refresh timing. That detail does more for credibility than a clean win would.</p>
+            <p style="font-size:0.875rem;line-height:1.65;max-width:none;color:var(--ink-soft)">The contract testing example is also strong: clear situation, clear action, strong metrics (45 to 12 minutes, 60% reduction in broken-build incidents), and scope across all six squads. Tom&aacute;s's feedback is well-written &mdash; balanced, specific, with a concrete example and a clear vote.</p>
+          </div>
+
+          <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--paper-warm)">
+            <div class="eo-section">Priority order for revisions</div>
+            <ol style="font-size:0.8125rem;line-height:1.65;color:var(--ink-soft);padding-left:1.25rem;margin-top:0.5rem">
+              <li style="margin-bottom:0.5rem">Fix the reporting integration paragraph &mdash; add a result, cut the superlatives, and decide how to address the blocking incident described in Tom&aacute;s's feedback (finding 1).</li>
+              <li style="margin-bottom:0.5rem">Strengthen the growth area &mdash; ground it in the specific incident, add a remediation plan, and reference Tom&aacute;s's observation (finding 2).</li>
+              <li style="margin-bottom:0.5rem">Add one framing sentence per Assessment example connecting it to Senior SE expectations (finding 3).</li>
+              <li>Define TTL and describe the consolidated reporting system in one phrase each (finding 4).</li>
+            </ol>
+          </div>
+
         </div>
       </div>
     </div>
 
     <div class="compare-note">
-      <strong>Notice what's missing?</strong> No rewritten version. No "here's how I'd say it." The editor tells you what's broken and why &mdash; you decide how to fix it. The full output also includes which sections were reviewed, what's working well, and a prioritized revision order.
+      <strong>Notice what's missing?</strong> No rewritten version. No &ldquo;here's how I'd say it.&rdquo; The editor tells you what's broken and why &mdash; you decide how to fix it.
     </div>
   </div>
 </section>
+
+<script>
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.example-tabs button').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('tab-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
 
 <section id="coverage" style="border-top:1px solid var(--rule)">
   <div class="container">
@@ -713,7 +822,7 @@ p+p{margin-top:1rem}
   <div class="container">
     <div class="footer-inner">
       <p>Built with interpretable context methodology.<br>Each file does one job well.</p>
-      <a href="https://github.com/alydperri/promo-doc-editor" class="btn btn-primary" style="flex-shrink:0">
+      <a href="https://github.com/alydperri/promo-doc-editor" class="btn btn-primary" style="flex-shrink:0" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         View on GitHub
       </a>

@@ -15,7 +15,7 @@ If the user hasn't submitted a document, ask them to paste their draft and tell 
 4. Check `customize/`. Apply template rules per `rules.md`.
 5. Read `examples.md`.
 6. Read `reference/rubric.md`. Run the critique pass.
-7. Read `reference/writing-quality-checklist.md`. Run the verification sweep. Integrate any new findings into the main output.
+7. Read `reference/writing-quality-checklist.md`. Run every dimension on the checklist against the document, even if the critique pass already covered some. If the sweep surfaces new findings, add them to the full findings list. This step catches cross-cutting patterns the section-by-section pass misses — do not skip or abbreviate it. The output cap (see `rules.md`) applies when formatting, not here — identify everything first, then prioritize.
 8. Format output per `rules.md`.
 9. Write the critique to a new file in `reviews/`. Use the naming convention from `reviews/CONTEXT.md` and the frontmatter from `reviews/_template.md`. Start at v1; increment for each subsequent pass on the same document.
 

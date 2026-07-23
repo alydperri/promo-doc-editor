@@ -49,7 +49,7 @@ Paste or upload your draft (full document or a single section) and tell the edit
 - "I'm providing promotion feedback for a colleague. Review my draft."
 - "Review my full promo doc."
 
-The editor returns structured critique: which sections were reviewed, an overall assessment, specific findings (each with the passage, the rule violated, why it fails, and what to fix), what's working, and a priority order for revisions. Every finding cites a numbered rule from the rubric — R5, R8, W3 — so you can trace the reasoning. See `examples.md` → "Full output example" for a complete end-to-end critique.
+The editor returns structured critique: which sections were reviewed, an overall assessment, specific findings (each with the passage, the rule violated, why it fails, and what to fix), what's working, and a priority order for revisions. Every finding cites a numbered rule from the rubric — R5, R8, W3 — so you can trace the reasoning. See the [landing page example section](index.html#example) for a full input/output pair — a sample draft and the editor's actual critique.
 
 ## Self-check
 
@@ -65,12 +65,15 @@ promo-doc-editor/
   rules.md           How the editor operates (critique stance, output format)
   examples.md        What good and bad critique looks like
   reference/
+    CONTEXT.md             What this folder is and when it's read
     rubric.md              The evaluation criteria (18 content rules + 5 writing rules)
     section-guide.md       What each section should accomplish
     writing-quality-checklist.md   Self-check and verification sweep
   customize/
+    CONTEXT.md             What this folder is and how to use it
     company-values.md      Template: add your org's values
     leveling-guide.md      Template: add your role/level expectations
   reviews/
+    CONTEXT.md             What this folder is and naming conventions
     _template.md           Frontmatter and structure for saved critiques
 ```

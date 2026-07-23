@@ -150,27 +150,17 @@ Two problems: "Maria has built an incredible reputation" is about the person, an
 
 ---
 
-### 2. R5 — Subjective language in the Assessment
+### 2. R5 + R8 — Assessment paragraph uses superlatives instead of evidence and is missing its result
 
-> "Maria's technical leadership is truly exceptional. She consistently goes above and beyond to deliver world-class results."
+> "Maria's technical leadership is truly exceptional. She led the platform migration across three business units, coordinating with 12 engineering teams. She consistently goes above and beyond to deliver world-class results."
 
-"Truly exceptional," "above and beyond," and "world-class" are opinions, not evidence. A reviewer reading this will question the writer's objectivity, not Maria's performance. These sentences cost you credibility.
+Two problems, same paragraph. "Truly exceptional," "above and beyond," and "world-class" are opinions, not evidence (R5). A reviewer reading this will question the writer's objectivity, not Maria's performance. And the migration example names a situation and an action but no result (R8) — what happened because Maria led this? Did the migration ship on time? What was the business impact? The superlatives are doing the work that evidence should be doing.
 
-**What to fix:** Cut the superlatives. Replace each claim with what Maria specifically did and what the measurable result was. The migration data you cite later (40% reduction in deployment time) is strong — lead with evidence like that instead of editorial praise.
-
----
-
-### 3. R8 — Assessment example missing its result
-
-> "Maria led the platform migration across three business units, coordinating with 12 engineering teams."
-
-This names a situation and an action but no result. What happened because Maria led this? Did the migration ship on time? What was the business impact? How does "coordinating with 12 teams" compare to what's expected at the current level vs. the next level?
-
-**What to fix:** Complete the SBI: what was the measurable outcome of the migration? You mention a 40% reduction in deployment time elsewhere — if that's from this migration, attach it here.
+**What to fix:** Cut the superlatives and complete the SBI. Replace the editorial praise with what Maria specifically did and what the measurable result was. You mention a 40% reduction in deployment time elsewhere — if that's from this migration, attach it here. One strong example with a result is worth more than three sentences of opinion.
 
 ---
 
-### 4. R9 — Undefined acronyms
+### 3. R9 — Undefined acronyms
 
 The following appear without definition: "TPM" (first use), "SRE," "OKR review," "P0 incident." A reviewer from outside your org may not share this vocabulary.
 
@@ -178,7 +168,7 @@ The following appear without definition: "TPM" (first use), "SRE," "OKR review,"
 
 ---
 
-### 5. R11 — Growth areas have no remediation plan
+### 4. R11 — Growth areas have no remediation plan
 
 > "Maria needs to develop her stakeholder communication skills. We've discussed this and she's aware of the gap."
 
@@ -197,11 +187,10 @@ The Growth Areas section exists and identifies real gaps, which puts this doc ah
 ---
 
 **Priority order for revisions:**
-1. Add remediation plans to every growth area (finding 5) — this is the most damaging gap for credibility.
+1. Add remediation plans to every growth area (finding 4) — this is the most damaging gap for credibility.
 2. Rewrite Scope of Role to be about the job, not the person (finding 1).
-3. Replace subjective language in the Assessment with evidence (finding 2).
-4. Complete the migration example with its result (finding 3).
-5. Define all undefined acronyms in one pass (finding 4).
+3. Replace subjective language in the Assessment with evidence and complete the migration example with its result (finding 2).
+4. Define all undefined acronyms in one pass (finding 3).
 
 ---
 
